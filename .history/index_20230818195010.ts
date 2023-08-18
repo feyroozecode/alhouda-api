@@ -5,7 +5,7 @@ const PORT = 3000 ;
 
 const app = express();
 app.get('/', function (req: any, res: any) {
-        res.send('<body style="background-color:#ccc">Alhamdoullah you are on the route</body>');
+        res.send('<body style="background-color:#000">Alhamdoullah you are on the route</b>');
 })
 
 app.listen(PORT, () => {
