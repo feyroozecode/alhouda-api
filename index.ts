@@ -1,13 +1,19 @@
 const express = require("express");
-
+import { connectToDb } from './db/db'
 
 const PORT = 3000 ;
 
 const app = express();
+connectToDb();
 app.get('/', function (req: any, res: any) {
-        res.send('<body style="background-color:#ccc">Alhamdoullah you are on the route</body>');
+        res.send('Alhamdoullah all is working fine !');
 })
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`the server listen on port ${PORT}`)
+})
+
+process.on('uncaughtException', (err: any, origin: any) => {
+   console.log(`Caught exception: ${err}\n` + `Exception origin: ${origin}` );
+   server.close();
 })
