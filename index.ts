@@ -4,6 +4,7 @@ import { connectToDb } from './db/db'
 const PORT = 3000 ;
 
 const app = express();
+app.use(express.json());
 connectToDb();
 app.get('/', function (req: any, res: any) {
         res.send('Alhamdoullah all is working fine !');
