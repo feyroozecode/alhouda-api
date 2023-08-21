@@ -1,4 +1,4 @@
-import { User } from '../../models/user'
+import { User } from '../../models/user.model'
 import {Request, Response} from 'express'
 import { HTTP_CODE } from '../../static_data/http_code' 
 

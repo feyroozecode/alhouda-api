@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 import {
-    register,
+    getAllUsers,
     /*login8*/
     
-} from '../controllers/auth/auth.controller'
+} from '../controllers/user.controller'
 
-router.post('/register', register)
+router.get('/all', getAllUsers)
 
 export default router;
