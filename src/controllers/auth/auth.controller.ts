@@ -3,7 +3,7 @@ import {Request, Response} from 'express'
 import { HTTP_CODE } from '../../static_data/http_code' 
 
 
-exports.register = async (req: Request, res: Response, next: any) => {
+export const register: any = async (req: Request, res: Response, next: any) => {
 
     const {username, password } = req.body as unknown as {username: string, password: string}
 
