@@ -1,5 +1,5 @@
 const express = require("express");
-import { connectToDb } from './db/db'
+import { connectToDb } from './src/db/db'
 import { API } from './src/static_data/api_routes';
 const routes = require('./src/routes/index')
 const PORT = 3000 ;

@@ -1,5 +1,5 @@
 import {Request, Response}  from 'express'
-import {UserModel} from '../models/user.model'
+import {UserModel} from '../db/documents/user.document'
 import { HTTP_CODE } from '../static_data/http_code'
 
 // get  all users 
