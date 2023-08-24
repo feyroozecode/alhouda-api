@@ -1,3 +1,6 @@
+/** 
+* This is the user model class which defines the attributes of a user.
+*/
 
 export class User {
     constructor(

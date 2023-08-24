@@ -1,6 +1,12 @@
 import mongoose  from "mongoose";
-import {User} from '../../models/user.model'
 
+/**
+ * @interface UserDocument
+ * @param {String} username
+ * @param {String} email
+ * @param {String} role
+ * @param {String} password
+ */
 export interface UserDocument extends mongoose.Document {
     username: string;
     email: string;
@@ -8,9 +14,17 @@ export interface UserDocument extends mongoose.Document {
     password: string;
 }
 
+
+/**
+ * @class UserSchema 
+ * @param {String} username
+ * @param {String} email
+ * @param {String} role
+ * @param {String} password
+ */ 
 const userSchema = new mongoose.Schema({
     username: { type: String, unique: true, required: true },
-    password: { type: String, minLength: 6, required: true },
+    password: { type: String, required: true },
     email: { type: String, minLength: 6, required: true },
     role: { type: String, default: "Basic", required: true }
 })
