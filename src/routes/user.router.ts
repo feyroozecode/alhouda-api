@@ -4,7 +4,8 @@ const router = express.Router()
 import {
     getAllUsers,
     getUserById,
-    updateUserById
+    updateUserById,
+    deleteUserById,
     /*login8*/
     
 } from '../controllers/user.controller'
@@ -14,5 +15,8 @@ router.get('/', getUserById)
 
 // update user by id
 router.put('/:id', updateUserById)
+
+// delete user
+router.delete('/:id', deleteUserById)
 
 export default router;

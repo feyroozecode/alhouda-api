@@ -71,3 +71,31 @@ export const updateUserById = async ( req: Request, res: Response) => {
         })
     }
 }
+
+
+// delete user by id 
+export const deleteUserById = async (req: Request, res: Response) => {
+    
+        const { id } = req.params
+    
+        try {
+            // delete user if not exists
+            const deleteUser = await UserModel.findByIdAndDelete(id);
+    
+            if(!deleteUser) {
+                return res.status(HTTP_CODE.NOT_FOUND).json({
+                    message: 'User NOT FOUND'
+                })
+            }
+    
+            res.status(HTTP_CODE.OK).json({
+                message: 'User deleted successfully',
+                data: deleteUser
+            })
+        } catch(error: any) {
+            res.status(HTTP_CODE.BAD_REQUEST).json({
+                message: 'Error deleting user',
+                errors: error.message
+            })
+        }
+}

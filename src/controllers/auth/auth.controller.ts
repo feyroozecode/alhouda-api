@@ -8,7 +8,6 @@ import { HTTP_CODE } from '../../static_data/http_code'
  *  @param {Request} req 
  *  @param {Response} res
  */ 
-
 export const register: any = async (req: Request, res: Response, next: any) => {
 
     const {username, password } = req.body as unknown as {username: string, password: string}
