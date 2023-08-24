@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const localDb = 'mongodb://localhost:27017/alhouda_db'
+const mongoose  = require('mongoose')
+const localDb   = 'mongodb://localhost:27017/alhouda_db'
 
 /// connecting to database  
 

@@ -1,10 +1,12 @@
-const express = require("express");
-import { connectToDb } from './src/db/db'
-import { API } from './src/static_data/api_routes';
-const routes = require('./src/routes/index')
-const PORT = 3000 ;
+const express  = require("express");
+const routes   = require('./src/routes/index')
 
-const app = express();
+import   { connectToDb }  from './src/db/db'
+import   {    API      }  from './src/static_data/api_routes';
+
+const PORT    = 3000 ;
+const app     = express();
+
 connectToDb();
 app.use(express.json());
 app.get('/', function (req: any, res: any) {

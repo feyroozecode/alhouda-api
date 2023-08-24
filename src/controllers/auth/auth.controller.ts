@@ -1,6 +1,6 @@
-import { UserModel } from '../../db/documents/user.document'
-import {Request, Response} from 'express'
-import { HTTP_CODE } from '../../static_data/http_code' 
+import   {  UserModel         }   from '../../db/documents/user.document'
+import   {  Request, Response }   from 'express'
+import   {  HTTP_CODE         }   from '../../static_data/http_code' 
 
 /**
  * 

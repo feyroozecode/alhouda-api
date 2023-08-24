@@ -1,6 +1,7 @@
-import {Request, Response}  from 'express'
-import {UserModel} from '../db/documents/user.document'
-import { HTTP_CODE } from '../static_data/http_code'
+import  {   Request ,   Response   }     from   'express'
+import  {   UserModel              }     from   '../db/documents/user.document'
+import  {   HTTP_CODE              }     from   '../static_data/http_code'
+
 
 // get  all users 
 export const getAllUsers = async (req: any, res: Response) => {
