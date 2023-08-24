@@ -23,10 +23,27 @@ export interface UserDocument extends mongoose.Document {
  * @param {String} password
  */ 
 const userSchema = new mongoose.Schema({
-    username: { type: String, unique: true, required: true },
-    password: { type: String, required: true },
-    email: { type: String, minLength: 6, required: true },
-    role: { type: String, default: "Basic", required: true }
+    username: { 
+        type: String, 
+        unique: true, 
+        required: [true, "L'email est recquis" ]
+    },
+    password: { 
+        type: String, 
+        required: true
+    },
+    email: { 
+        type: String, 
+       
+        minLength: 6, 
+        required: true 
+    },
+    role: { 
+        type: String, 
+        default: "user", 
+        required: true,
+        enum: ['user', 'admin', 'staff', 'superviseur']
+    }
 })
 
 // export Schema on type of UserModel 
