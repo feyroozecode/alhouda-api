@@ -10,12 +10,22 @@ export  class Ustaz extends User  {
         public email: string,
         public password: string,
         public role: string,
-        public ustazId: string, 
+
+        // specific of a ustaz
+        private bio : string,
+        private profile_picture: string,
+        private social_links: {
+            facebook: string,
+            twitter: string,
+            youtube: string
+        },
         public courses: Array<Course>
         
     ) {
         super(userId, username, email, password, role);
-        this.ustazId = ustazId;
+        this.bio = bio;
+        this.profile_picture,
+        this.social_links,
         this.courses = courses
     }
 
