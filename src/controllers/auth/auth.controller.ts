@@ -3,12 +3,13 @@ import   {  Request, Response }   from 'express'
 import   {  HTTP_CODE         }   from '../../static_data/http_code' 
 
 /**
- * 
- *  Controller to handle registration of new users 
+ *
+ *  @Controller to handle registration of new users 
  *  @param {Request} req 
  *  @param {Response} res
  *  Register a new User by checking a user exisit or not 
  */ 
+
 export const register: any = async (req: Request, res: Response, next: any) => {
 
     const {username, email, password } = req.body as unknown as {username: string,email: string,  password: string}
@@ -22,7 +23,7 @@ export const register: any = async (req: Request, res: Response, next: any) => {
    // check if user already exists
    try {
      await UserModel.create({
-        username, 
+        username,
         email,
         password
      }).then((user: any) => {
