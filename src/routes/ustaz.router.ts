@@ -10,7 +10,7 @@ import {
 } from '../controllers/ustaz.controller'
 
 router.get('/all', getAllUstazs)
-router.get('/', getUstazById)
+router.get('/:id', getUstazById)
 
 // add ustaz
 router.post('/add', addUstaz)

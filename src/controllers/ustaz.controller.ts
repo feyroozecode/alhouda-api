@@ -60,11 +60,11 @@ export const getAllUstazs = async (req: Request, res: Response) => {
 }
 
 // get a single ustaz 
-export const getUstazById = async (req: any, res: Response) => {
+export const getUstazById = async (req: Request, res: Response) => {
+
+    const {id} = req.params
 
     try{ 
-        const {id} = req.params
-
         const ustaz = await UstazModel.findById(id)
 
         res.status(HTTP_CODE.OK).json({

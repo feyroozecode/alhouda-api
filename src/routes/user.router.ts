@@ -11,7 +11,7 @@ import {
 } from '../controllers/user.controller'
 
 router.get('/all', getAllUsers)
-router.get('/', getUserById)
+router.get('/:id', getUserById)
 
 // update user by id
 router.put('/:id', updateUserById)
