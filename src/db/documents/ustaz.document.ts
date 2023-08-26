@@ -1,7 +1,21 @@
 import     mongoose    from "mongoose";
 import  {   Course   }  from '../../models/course.model'
 
-//MONGO_T_ARRAY: mongoose.Schema.Types.Array = []
+export interface UstazDocument extends mongoose.Document {
+  username: string,
+  password: string,
+  email: string,
+  role: string,
+  courses: Array<Course>,
+  bio: string,
+  profile_picture: string,
+  social_media_handles: {
+    facebook: string,
+    twitter: string,
+    linkedin: string,
+    youtube: string
+  }
+}
 
 /**
  * @class TeacherSchema 
@@ -14,7 +28,7 @@ import  {   Course   }  from '../../models/course.model'
  * @param {String} profile_picture
  * @param {Object} social_media_handles
  */ 
-const teacherSchema = new mongoose.Schema({
+const ustazSchema = new mongoose.Schema({
     username: { 
         type: String, 
         unique: true, 
@@ -31,7 +45,7 @@ const teacherSchema = new mongoose.Schema({
     },
     role: { 
         type: String, 
-        default: "teacher", 
+        default: "ustaz", 
         required: true,
         enum: ['user', 'admin', 'staff', 'superviseur', 'teacher', 'ustaz']
     },
@@ -68,4 +82,4 @@ const teacherSchema = new mongoose.Schema({
     }
 })
 
-  
+export const UstazModel = mongoose.model<UstazDocument>('Ustaz', ustazSchema)
