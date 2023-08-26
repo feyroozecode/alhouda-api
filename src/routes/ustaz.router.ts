@@ -13,7 +13,7 @@ router.get('/all', getAllUstazs)
 router.get('/', getUstazById)
 
 // add ustaz
-router.post('/', addUstaz)
+router.post('/add', addUstaz)
 
 // update ustaz by id
 router.put('/:id', updateUstazById)

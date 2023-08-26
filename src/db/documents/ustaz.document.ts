@@ -45,7 +45,7 @@ const ustazSchema = new mongoose.Schema({
     },
     role: { 
         type: String, 
-        default: "teacher", 
+        default: "ustaz", 
         required: true,
         enum: ['user', 'admin', 'staff', 'superviseur', 'teacher', 'ustaz']
     },

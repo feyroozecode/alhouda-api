@@ -19,11 +19,7 @@ export const addUstaz = async (req: Request, res: Response) => {
         return res.status(statusCode).json({message: error.message, error})
     }
 
-    res.status(HTTP_CODE.CREATED).json({
-        message: 'Ustaz created successfully',
-       // data: ustaz
-    })
-
+    // add 
     try {
         await UstazModel.create({
             username, email, password, role, 
