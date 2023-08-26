@@ -4,7 +4,7 @@ import  {   HTTP_CODE              }     from   '../static_data/http_code'
 
 
 // get  all users 
-export const getAllUsers = async (req: any, res: Response) => {
+export const getAllUsers = async (req: Request, res: Response) => {
     
     try{
         const users = await UserModel.find()

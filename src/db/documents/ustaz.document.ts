@@ -1,9 +1,6 @@
 import     mongoose    from "mongoose";
 import  {   Course   }  from '../../models/course.model'
 
-//MONGO_T_ARRAY: mongoose.Schema.Types.Array = []
-
-
 export interface UstazDocument extends mongoose.Document {
   username: string,
   password: string,
@@ -85,4 +82,4 @@ const ustazSchema = new mongoose.Schema({
     }
 })
 
-export const ustazMoel = mongoose.model<UstazDocument>('Ustaz', ustazSchema)
+export const UstazModel = mongoose.model<UstazDocument>('Ustaz', ustazSchema)
