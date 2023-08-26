@@ -3,6 +3,7 @@ import { UstazModel } from '../db/documents/ustaz.document';
 import  {   Course                 }     from   '../models/course.model'    
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
 
+// add ustaz 
 export const addUstaz = async (req: Request, res: Response) => {
 
     const {
