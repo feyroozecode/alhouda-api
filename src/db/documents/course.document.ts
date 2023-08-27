@@ -24,10 +24,10 @@ export interface CourseDocument extends mongoose.Document {
 
 const courseSchema = new mongoose.Schema({
     courseId: {
-        type: new mongoose.Types.ObjectId(),
+        type: mongoose.Schema.Types.ObjectId,
         // comment this line 
         // this will generate a random id based on mongoType and reduce this 
-        value: () => reduceString(new mongoose.Types.ObjectId().toHexString()),
+        //value: () => reduceString(new mongoose.Types.ObjectId().toHexString()),
         unique: true,
     },
     title: {
