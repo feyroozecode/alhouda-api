@@ -1,5 +1,5 @@
 
-export function reduceString(string: string): string {
+export function reduceString2(string: string): string {
   // Convert the string to lowercase.
   string: string = string.toLowerCase();
 
@@ -24,4 +24,16 @@ export function reduceString(string: string): string {
   const finalNextString: string = nextString.toString().slice(-4);
 
   return finalNextString;
+}
+
+/*
+ v2 
+*/
+
+export function reduceString(string: string): string {
+  // Convert the string to lowercase and remove all non-alphanumeric characters.
+  const normalizedString = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+
+  // Increment the string by 1 and pad with zeros to make it 8 characters long.
+  return `${normalizedString + 1}`.padStart(8, '0');
 }
