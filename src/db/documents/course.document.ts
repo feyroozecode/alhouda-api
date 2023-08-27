@@ -1,7 +1,8 @@
-import mongoose  from   'mongoose'
-import { Video } from '../../models/video.model'
-import { Audio } from '../../models/audio.model'
-import { Article } from '../../models/article.model'
+import mongoose          from   'mongoose'
+import { Video        }  from '../../models/video.model'
+import { Audio        }  from '../../models/audio.model'
+import { Article      }  from '../../models/article.model'
+import { reduceString }  from '../../utils/string_splitter'
 
 /**
  * @interface CourseDocument
@@ -23,7 +24,10 @@ export interface CourseDocument extends mongoose.Document {
 
 const courseSchema = new mongoose.Schema({
     courseId: {
-        type: String,
+        type: new mongoose.Types.ObjectId() ,
+        // comment this line 
+        // this will generate a random id based on mongoType and reduce this 
+        value: () => reduceString(new mongoose.Types.ObjectId().toHexString()),
         unique: true,
     },
     title: {
