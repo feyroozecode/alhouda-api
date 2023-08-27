@@ -20,7 +20,7 @@ export const addUstaz = async (req: Request, res: Response) => {
         return res.status(statusCode).json({message: error.message, error})
     }
 
-    // add 
+    // add ustaz to the db 
     try {
         await UstazModel.create({
             username, email, password, role, 
