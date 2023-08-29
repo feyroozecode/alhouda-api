@@ -1,17 +1,15 @@
-const express  = require("express");
-const routes   = require('./src/routes/index')
+const express             =     require("express");
+const routes              =     require('./src/routes/index')
 
-import   { connectToDb }  from './src/db/db'
-import   {    API      }  from './src/static_data/api_routes';
+import   { connectToDb }  from  './src/db/db'
+import   {    API      }  from  './src/static_data/api_routes';
 
 const PORT    = 3000 ;
 const app     = express();
 
 connectToDb();
 app.use(express.json());
-app.get('/', function (req: any, res: any) {
-        res.send('Alhamdoullah all is working fine !');
-})
+
 app.use(API.API_V1_BASE_ROUTE, routes)
 
 const server = app.listen(PORT, () => {

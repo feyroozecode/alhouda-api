@@ -13,6 +13,11 @@ export const addArticle = async (req: Request, res: Response ) => {
         return res.status(HTTP_CODE.BAD_REQUEST).json({message: error.message, error })
     }
 
+    const article = await ArticleModel.findOne({title: title});
+    if(article) {
+        const error: Error = new Error('Article already exist');
+        return res.status(HTTP_CODE.BAD_REQUEST).json({message: error.message, error })
+    }
 
     try {
         await ArticleModel.create({
@@ -38,7 +43,7 @@ export const addArticle = async (req: Request, res: Response ) => {
 export const getAllArticles = async(req: Request, res: Response) => {
 
     try {
-        const articles = ArticleModel.find()
+        const articles = await ArticleModel.find()
 
         res.status(HTTP_CODE.OK).json({
             message: "Fecth all articles",
@@ -47,7 +52,7 @@ export const getAllArticles = async(req: Request, res: Response) => {
 
     } catch(error: any){
         res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Errorgetting all articles',
+            message: 'Error getting all articles',
             errors: error.message
         })
     }
@@ -105,7 +110,13 @@ export const deleteArticle = async (req: Request, res: Response) => {
     const { id } = req.params
 
     try {
-        const articleToDelete = ArticleModel.findByIdAndDelete(id)
+        const articleToDelete = await ArticleModel.findByIdAndDelete(id);
+
+        if(!articleToDelete){
+            return res.status(HTTP_CODE.NOT_FOUND).json({
+                message: 'Article NOT FOUND'
+            })
+        }
 
         res.status(HTTP_CODE.OK).json({
             message: 'article deleted successfully',
@@ -113,7 +124,7 @@ export const deleteArticle = async (req: Request, res: Response) => {
         })
     } catch(error: any ){
         return res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Error updating a article',
+            message: 'Error deleting a article',
             errors: error.message
         })
     }

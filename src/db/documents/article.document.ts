@@ -1,6 +1,6 @@
 import    mongoose from 'mongoose';
-import { Article } from '../../../.history/src/models/article.model_20230828212538';
 import { User } from '../../models/user.model';
+import { UserModel } from './user.document';
 
 export interface ArticleDocument extends mongoose.Document{
     articleId: string,
@@ -14,10 +14,16 @@ export interface ArticleDocument extends mongoose.Document{
  */
 
 const ArticleSchema = new mongoose.Schema({
-    articleId: { type: String },
-    title: { type: String },
+    articleId: { 
+        type: String
+    },
+    title: { 
+        type: String, 
+        unique: true,
+        required: [ true, "Le titre de l'article est recquis"]
+    },
     content: {type: String},
-    author: { type: User }
+    author: {type: String}  //{ type:  mongoose.Schema.Types.ObjectId, ref: UserModel, required: true, autopopulate: { select: 'username email' } }
 })
 
-export const ArticleModel = mongoose.model<ArticleDocument>('Urticle', ArticleSchema)
+export const ArticleModel = mongoose.model<ArticleDocument>('Article', ArticleSchema)
