@@ -13,7 +13,12 @@ export const addArticle = async (req: Request, res: Response ) => {
         return res.status(HTTP_CODE.BAD_REQUEST).json({message: error.message, error })
     }
 
-
+    const article = await ArticleModel.findOne({title: title});
+    if(article) {
+        const error: Error = new Error('Article already exist');
+        return res.status(HTTP_CODE.BAD_REQUEST).json({message: error.message, error })
+    }
+    
     try {
         await ArticleModel.create({
             title, content, author
@@ -38,7 +43,7 @@ export const addArticle = async (req: Request, res: Response ) => {
 export const getAllArticles = async(req: Request, res: Response) => {
 
     try {
-        const articles = ArticleModel.find()
+        const articles = await ArticleModel.find()
 
         res.status(HTTP_CODE.OK).json({
             message: "Fecth all articles",
@@ -47,7 +52,7 @@ export const getAllArticles = async(req: Request, res: Response) => {
 
     } catch(error: any){
         res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Errorgetting all articles',
+            message: 'Error getting all articles',
             errors: error.message
         })
     }

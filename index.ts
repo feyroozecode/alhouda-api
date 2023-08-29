@@ -12,7 +12,6 @@ app.use(express.json());
 
 app.use(API.API_V1_BASE_ROUTE, routes)
 
-
 const server = app.listen(PORT, () => {
     console.log(`the server listen on port ${PORT}`)
 })

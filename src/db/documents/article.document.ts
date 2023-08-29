@@ -14,10 +14,15 @@ export interface ArticleDocument extends mongoose.Document{
  */
 
 const ArticleSchema = new mongoose.Schema({
-    articleId: { type: String },
-    title: { type: String },
+    articleId: { 
+        type: String
+    },
+    title: { 
+        type: String, unique: true,
+        required: [ true, "Le titre de l'article est recquis"]
+    },
     content: {type: String},
-    author: { type:  mongoose.Schema.Types.ObjectId, ref: UserModel, required: true, autopopulate: { select: 'username email' } }
+    author: {type: String}  //{ type:  mongoose.Schema.Types.ObjectId, ref: UserModel, required: true, autopopulate: { select: 'username email' } }
 })
 
 export const ArticleModel = mongoose.model<ArticleDocument>('Urticle', ArticleSchema)
