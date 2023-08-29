@@ -18,11 +18,12 @@ const ArticleSchema = new mongoose.Schema({
         type: String
     },
     title: { 
-        type: String, unique: true,
+        type: String, 
+        unique: true,
         required: [ true, "Le titre de l'article est recquis"]
     },
     content: {type: String},
     author: {type: String}  //{ type:  mongoose.Schema.Types.ObjectId, ref: UserModel, required: true, autopopulate: { select: 'username email' } }
 })
 
-export const ArticleModel = mongoose.model<ArticleDocument>('Urticle', ArticleSchema)
+export const ArticleModel = mongoose.model<ArticleDocument>('Article', ArticleSchema)

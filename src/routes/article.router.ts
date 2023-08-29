@@ -22,7 +22,7 @@ router.get('/all', getAllArticles)
 router.get('/:id', getArticleById)
 
 // delete  article 
-router.delete(':/id', deleteArticle)
+router.delete('/:id', deleteArticle)
 
 // export the router 
 export default router;
