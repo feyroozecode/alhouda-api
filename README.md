@@ -1,14 +1,8 @@
         # alhouda-api
-Alhouda Project Api Base Code Alhouda 
+ - Alhouda Project Api Base Code 
 
-//Alhouda v.1 => Schoalrs cours only 
+## Alhouda API v.1 
+  [This project is using NodeJs, Typescript and somes package like : express, mongoose etc...]
 
-Alhouda Project is a Big Project to create Platform Unify
-Islamics Scholars to provides a first class Islamic Scholars Preaches Free to listen for everyone who wan to learn Islam , is have on the base a different Media types and different features to access this : 
- - Courses on Different Media Video , Audio, Podcast etc..
- - News on Islamics preaches etc..
- - Archives
- - Islamic Books 
- - etc..
-
+- Alhouda Project is a Platform for Islam with local Ulema NigerNigeria scholars Courses, Lectures, Quran , Hadith , articles etc.. 
 
