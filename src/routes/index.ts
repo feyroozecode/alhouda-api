@@ -6,8 +6,11 @@ import ustazRoute      from  './ustaz.router'
 import courseRoute     from  './course.router'
 import articleRoute    from  './article.router'
 
-router.use('/auth', registerRoute)
+// test
+router.get('/', function (req: Request, res: any) {res.send('Alhamdoullah all is working fine !')})
 
+// auth 
+router.use('/auth', registerRoute)
 // user
 router.use('/user', userRoute)
 // ustaz
