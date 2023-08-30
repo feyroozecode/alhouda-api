@@ -82,8 +82,14 @@ export const login = async (req: Request, res: Response, next: any) => {
 
 }
 
+
 /**
- * Update user role 
+ * Update the role of a user.
+ *
+ * @param {Request} req - The request object containing the new role and user ID.
+ * @param {Response} res - The response object used to send the result back to the client.
+ * @param {any} next - The next function in the middleware chain.
+ * @returns {void}
  */
 export const updateRole = async (req: Request, res: Response, next: any) => {
 
