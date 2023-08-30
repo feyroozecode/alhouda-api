@@ -15,6 +15,8 @@ export const addCourse = async (req: Request, res: Response) => {
         return res.status(statusCode).json({message: error.message, error})
     }
 
+
+
     // add course to the db
     try {
         await CourseModel.create({

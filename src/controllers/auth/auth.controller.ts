@@ -1,6 +1,9 @@
 import   {  UserModel         }   from '../../db/documents/user.document'
 import   {  Request, Response }   from 'express'
 import   {  HTTP_CODE         }   from '../../static_data/http_code' 
+import   {  USER_ROLES        }   from '../../static_data/user_roles' 
+import   { SaveOptions        }   from 'mongoose'
+
 
 /**
  *
@@ -44,6 +47,13 @@ export const register: any = async (req: Request, res: Response, next: any) => {
 
 }
 
+/**
+ *  function for login user 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
 export const login = async (req: Request, res: Response, next: any) => {   
 
     const { username, password } = req.body
@@ -70,4 +80,60 @@ export const login = async (req: Request, res: Response, next: any) => {
         })
     }
 
+}
+
+/**
+ * Update user role 
+ */
+export const updateRole = async (req: Request, res: Response, next: any) => {
+
+    const { role, id } = req.body 
+
+    // if user role and id exist 
+    if( role  && id ) {
+        try {
+
+            if( role === USER_ROLES.ADMIN ) {
+                 
+                const user = await UserModel.findById(id)
+
+                if(user !== null) {
+                    if(user.role !== USER_ROLES.ADMIN){
+                        user.role = role;  // change the role
+                            
+                        try {
+                            await user.save();  // save a user with update 
+
+                            res.status(HTTP_CODE.CREATED).json({
+                                message: "Update user role successfully",
+                                data: user
+                            });
+                        } catch(error: any){
+                             res.status(HTTP_CODE.BAD_REQUEST).json({
+                                message: "An error occurred",
+                                error: error.message
+                            });
+                        }
+                        
+                    }
+                    else {
+                        res.status(HTTP_CODE.BAD_REQUEST).json({
+                            message: "Role is already admin"
+                        });
+                    }
+                } 
+                else {
+                    res.status(HTTP_CODE.NOT_FOUND).json({
+                        message: "User not found"
+                    });
+                }
+            }
+        }
+        catch(error: any) {
+            res.status(HTTP_CODE.INTERNAL_SERVER_ERROR).json({
+                    message: "An error occurred",
+                    error: error.message
+                });
+        }
+    }
 }
