@@ -43,3 +43,31 @@ export const register: any = async (req: Request, res: Response, next: any) => {
     
 
 }
+
+export const login = async (req: Request, res: Response, next: any) => {   
+
+    const { username, password } = req.body
+
+    try {
+        const user = await UserModel.findOne({ username, password })
+
+        if(!user){
+            return res.status(HTTP_CODE.UNAUTHORIZED).json({
+                message: "Login Not Found",
+                error: "User not found" 
+            })
+        }
+        else {
+            res.status(HTTP_CODE.OK).json({
+                message: "Login successfully",
+                data: user 
+            })
+        }
+    } catch(error: any){
+        res.status(HTTP_CODE.BAD_REQUEST).json({
+            message: "An error occured ",
+            error: error.message
+        })
+    }
+
+}
