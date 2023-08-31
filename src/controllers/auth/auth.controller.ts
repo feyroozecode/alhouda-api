@@ -59,20 +59,31 @@ export const login = async (req: Request, res: Response, next: any) => {
 
     const { username, password } = req.body
 
+    if(!username || !password ) {
+        return res.status(HTTP_CODE.UNAUTHORIZED).json({
+                message: "User or password not present" ,
+               
+        })
+    }
+
     try {
-        const user = await UserModel.findOne({ username, password })
+        const user = await UserModel.findOne({ username })
 
         if(!user){
             return res.status(HTTP_CODE.UNAUTHORIZED).json({
-                message: "Login Not Found",
+                message: "Email or Password are inccorrect or not found",
                 error: "User not found" 
             })
         }
         else {
-            res.status(HTTP_CODE.OK).json({
-                message: "Login successfully",
-                data: user 
-            })
+            bcrypt.compare(password, user.password).then( function(result: any) {
+                result ?   
+                    res.status(HTTP_CODE.OK).json({
+                        message: "Login successfully",
+                        data: user 
+                    }) :
+                        res.status(HTTP_CODE.BAD_REQUEST).json({message: "Login not successful"})
+            } )
         }
     } catch(error: any){
         res.status(HTTP_CODE.BAD_REQUEST).json({
