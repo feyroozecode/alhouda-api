@@ -2,7 +2,6 @@ import mongoose          from   'mongoose'
 import { Video        }  from '../../models/video.model'
 import { Audio        }  from '../../models/audio.model'
 import { Article      }  from '../../models/article.model'
-import { reduceString }  from '../../utils/string_splitter'
 
 /**
  * @interface CourseDocument

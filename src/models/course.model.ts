@@ -12,7 +12,6 @@ export class Course {
         public audios: Array<Audio>,
         public articles: Array<Article>,
     ) {
-    
         this.courseId = courseId;
         this.title = title;
         this.description = description;

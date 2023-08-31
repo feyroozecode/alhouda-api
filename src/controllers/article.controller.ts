@@ -1,7 +1,7 @@
-import  {   Request ,   Response   }     from   'express'
+import  {   Request ,   Response    }     from   'express'
 import  {   ArticleModel            }     from '../db/documents/article.document';
-import  {   Article                }     from   '..//models/article.model'    
-import { HTTP_CODE } from '../static_data/http_code';
+import  {   Article                 }     from   '..//models/article.model'    
+import  { HTTP_CODE                 }     from '../static_data/http_code';
 
 // add article 
 export const addArticle = async (req: Request, res: Response ) => {

@@ -1,13 +1,14 @@
-import   {  UserModel         }   from '../../db/documents/user.document'
-import   {  Request, Response }   from 'express'
-import   {  HTTP_CODE         }   from '../../static_data/http_code' 
+import   {  UserModel         }   from    '../../db/documents/user.document'
+import   {  Request, Response }   from    'express'
+import   {  HTTP_CODE         }   from     '../../static_data/http_code' 
+const    colors                 = require  ('colors')
+const    bcrypt                 = require   ('bcryptjs')
 
 /**
- *
  *  @Controller to handle registration of new users 
  *  @param {Request} req 
  *  @param {Response} res
- *  Register a new User by checking a user exisit or not 
+ *  Register a new User by checking a user exist or not 
  */ 
 
 export const register: any = async (req: Request, res: Response, next: any) => {
@@ -22,18 +23,21 @@ export const register: any = async (req: Request, res: Response, next: any) => {
 
    // check if user already exists
    try {
-     await UserModel.create({
-        username,
-        email,
-        password
-     }).then((user: any) => {
-        res.status(HTTP_CODE.OK).json({
-            message: `User created successfully: ${user}`,
-             user
-        })
-        console.log(user);
-    }
-    )
+    bcrypt.hash(password, 10).then(async (hash: any) => {
+        await UserModel.create({
+            username,
+            email,
+            password: hash
+         }).then((user: any) => {
+            res.status(HTTP_CODE.OK).json({
+                message: `User created successfully: ${user}`,
+                 user
+            });
+
+            console.log(colors.orange('Request:'), req.method, req.url);
+        }
+        )
+    })
    } catch(err: any) {
         res.status(HTTP_CODE.UNAUTHORIZED).json({
             message: `User already exists or not authorized: ${err}`,
@@ -55,20 +59,31 @@ export const login = async (req: Request, res: Response, next: any) => {
 
     const { username, password } = req.body
 
+    if(!username || !password ) {
+        return res.status(HTTP_CODE.UNAUTHORIZED).json({
+                message: "User or password not present" ,
+               
+        })
+    }
+
     try {
-        const user = await UserModel.findOne({ username, password })
+        const user = await UserModel.findOne({ username })
 
         if(!user){
             return res.status(HTTP_CODE.UNAUTHORIZED).json({
-                message: "Login Not Found",
+                message: "Email or Password are inccorrect or not found",
                 error: "User not found" 
             })
         }
         else {
-            res.status(HTTP_CODE.OK).json({
-                message: "Login successfully",
-                data: user 
-            })
+            bcrypt.compare(password, user.password).then( function(result: any) {
+                result ?   
+                    res.status(HTTP_CODE.OK).json({
+                        message: "Login successfully",
+                        data: user 
+                    }) :
+                        res.status(HTTP_CODE.BAD_REQUEST).json({message: "Login not successful"})
+            } )
         }
     } catch(error: any){
         res.status(HTTP_CODE.BAD_REQUEST).json({
