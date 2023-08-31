@@ -3,7 +3,7 @@ import  {   CourseModel            }     from '../../db/documents/course.documen
 import  {   Course                 }     from   '../../models/course.model'    
 import  {   HTTP_CODE              }     from   '../../static_data/http_code'
 
-// add course
+// add course method
 export const addCourse = async (req: Request, res: Response) => {
     const {courseId, title, description, category, videos, audios, articles} = 
         req.body as unknown as Course;
@@ -14,6 +14,7 @@ export const addCourse = async (req: Request, res: Response) => {
         const statusCode: number = HTTP_CODE.BAD_REQUEST;
         return res.status(statusCode).json({message: error.message, error})
     }
+
 
     // add course to the db
     try {
