@@ -1,8 +1,21 @@
 import   {  UserModel         }   from    '../../db/documents/user.document'
 import   {  Request, Response }   from    'express'
 import   {  HTTP_CODE         }   from     '../../static_data/http_code' 
-const    colors                 = require  ('colors')
-const    bcrypt                 = require   ('bcryptjs')
+const    colors               =   require  ( 'colors')
+const    bcrypt               =   require  ( 'bcryptjs')
+const    jwt                  =   require  ( 'jsonwebtoken' )
+
+
+/**
+ * Variables and constantes
+ */
+
+// json web token secret
+const JWT_SECRET  = 'cf53153beb78c340388324d8a29c0a8d7337f6eecca092864952ada4ed8024dcdbc905'
+
+// Time to expire for the JWT
+const TOKEN_MAX_TIME = 3 * (60*60)
+
 
 /**
  *  @Controller to handle registration of new users 
@@ -29,9 +42,25 @@ export const register: any = async (req: Request, res: Response, next: any) => {
             email,
             password: hash
          }).then((user: any) => {
-            res.status(HTTP_CODE.OK).json({
+            
+            // create a token for the user 
+            const token = jwt.sign(
+                { id: user._id, username, role: user.role },
+                JWT_SECRET,
+                {
+                    expiresIn: TOKEN_MAX_TIME
+                }    
+            );
+
+            // set the token in the cookie 
+            res.cookie('jwt', token, {
+                httpOnly: true,
+                maxAge: TOKEN_MAX_TIME * 1000  // 3 Hours in ms
+            })
+
+            res.status(HTTP_CODE.CREATED).json({
                 message: `User created successfully: ${user}`,
-                 user
+                user: user._id
             });
 
             console.log(colors.orange('Request:'), req.method, req.url);
@@ -77,13 +106,37 @@ export const login = async (req: Request, res: Response, next: any) => {
         }
         else {
             bcrypt.compare(password, user.password).then( function(result: any) {
-                result ?   
+
+                if(result){
+                   // create a token for the user 
+                    const token = jwt.sign(
+                        { id: user._id, username, role: user.role },
+                        JWT_SECRET,
+                        {
+                            expiresIn: TOKEN_MAX_TIME
+                        }    
+                    );
+
+                    // set the token in the cookie 
+                    res.cookie('jwt', token, {
+                        httpOnly: true,
+                        maxAge: TOKEN_MAX_TIME * 1000  // 3 Hours in ms
+                    })
+ 
+                    // send the response  
                     res.status(HTTP_CODE.OK).json({
-                        message: "Login successfully",
-                        data: user 
-                    }) :
-                        res.status(HTTP_CODE.BAD_REQUEST).json({message: "Login not successful"})
-            } )
+                        message: "User successful logged in ",
+                        user: user._id 
+                    });
+
+                } else {
+                    res.status(HTTP_CODE.BAD_REQUEST).json({
+                        message: "Login not successful",
+                        error: "Password not correct" 
+                    })
+                }
+
+            })
         }
     } catch(error: any){
         res.status(HTTP_CODE.BAD_REQUEST).json({
