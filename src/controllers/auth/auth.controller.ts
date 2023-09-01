@@ -4,12 +4,14 @@ import   {  HTTP_CODE         }   from     '../../static_data/http_code'
 const    colors               =   require  ( 'colors')
 const    bcrypt               =   require  ( 'bcryptjs')
 const    jwt                  =   require  ( 'jsonwebtoken' )
-
+import { 
+    adminAuth, 
+    userAuth
+   }               from '../../middleware/auth.middleware';
 
 /**
  * Variables and constantes
  */
-
 // json web token secret
 const JWT_SECRET  = 'cf53153beb78c340388324d8a29c0a8d7337f6eecca092864952ada4ed8024dcdbc905'
 

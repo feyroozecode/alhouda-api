@@ -7,7 +7,7 @@ import courseRoute     from  './course.router'
 import articleRoute    from  './article.router'
 
 // test
-router.get('/', function (req: Request, res: any) {res.send('Alhamdoullah all is working fine !')})
+router.get('/', function (req: Request, res: any) { res.send('Alhamdoullah all is working fine !')})
 
 // auth 
 router.use('/auth', registerRoute)

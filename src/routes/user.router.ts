@@ -10,16 +10,21 @@ import {
     /*login8*/
     
 }                  from '../controllers/user.controller'
+import { 
+    adminAuth, 
+   }               from './../middleware/auth.middleware';
 
-router.get( '/all'          ,     getAllUsers)
-router.get( '/:id'          ,     getUserById)
+
+router.get( '/all'          ,     getAllUsers )
+router.get( '/:id'          ,     getUserById )
 
 // update user by id
-router.put( '/:id'          ,     updateUserById)
+router.route('/:id').put(adminAuth,updateUserById )
 
-router.post( '/updateRole'  ,     updateRole)
+router.post( '/updateRole'  ,     updateRole ) 
 
+// add security 
 // delete user
-router.delete( '/:id'       ,     deleteUserById)
+router.route('/:id').delete(adminAuth, deleteUserById )
 
 export default router;

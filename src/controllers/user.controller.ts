@@ -1,8 +1,8 @@
 import  {   Request ,   Response   }     from   'express'
 import  {   UserModel              }     from   '../db/documents/user.document'
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
-import   {  USER_ROLES        }   from '../static_data/user_roles' 
-import   { SaveOptions        }   from 'mongoose'
+import  {   USER_ROLES             }     from '../static_data/user_roles' 
+import  {   SaveOptions            }     from 'mongoose'
 
 // get  all users 
 export const getAllUsers = async (req: Request, res: Response) => {
