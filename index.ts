@@ -1,6 +1,6 @@
 const express             =     require("express");
 const routes              =     require('./src/routes/index')
-
+const cookieParser        =     require("cookie-parser");
 import   { connectToDb }  from  './src/db/db'
 import   {    API      }  from  './src/static_data/api_routes';
 
@@ -9,6 +9,8 @@ const app     = express();
 
 connectToDb();
 app.use(express.json());
+// use cookie parser for the cookie 
+app.use(cookieParser());
 
 app.use(API.API_V1_BASE_ROUTE, routes)
 

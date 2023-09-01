@@ -16,7 +16,6 @@ const JWT_SECRET  = 'cf53153beb78c340388324d8a29c0a8d7337f6eecca092864952ada4ed8
 // Time to expire for the JWT
 const TOKEN_MAX_TIME = 3 * (60*60)
 
-
 /**
  *  @Controller to handle registration of new users 
  *  @param {Request} req 
