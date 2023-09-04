@@ -2,6 +2,7 @@ import  {   Request ,   Response   }     from   'express'
 import  {   CourseModel            }     from '../../db/documents/course.document';
 import  {   Course                 }     from   '../../models/course.model'    
 import  {   HTTP_CODE              }     from   '../../static_data/http_code'
+import { AnyArray } from 'mongoose';
 
 // add course method
 export const addCourse = async (req: Request, res: Response) => {
@@ -52,6 +53,7 @@ export const getAllCourses = async (req: Request, res: Response) => {
             })
         }
 }
+
 
 // get course by Id
 export const getCourseById = async (req: any, res: Response) => {
@@ -131,4 +133,38 @@ export const deleteCourseById = async (req: Request, res: Response) => {
             })
         }
 
+}
+
+// search courses
+export const searchCourses = async (req: Request, res: Response ) => {
+
+    try {
+        const { category, keyword } = req.query as unknown as { category: string, keyword: string }
+    
+        const query: any = {};
+
+        if ( category  ) {
+            query.category = category
+        }
+
+        if ( keyword ) {
+            query.title = {
+                $regex: keyword,
+                $options: 'i'
+            }
+            
+            query.$or = [
+                { title: { $regex: keyword, $options: 'i' } },
+                { description: { $regex: keyword, $options: 'i' } }
+            ]; 
+        }
+
+        const cousrs = await CourseModel.find(query);
+        res.json({ cousrs })
+
+    } catch (err: any) {
+        console.log(err);
+        res.status(HTTP_CODE.INTERNAL_SERVER_ERROR).json({error: 'Server error' })
+    }
+    
 }

@@ -4,7 +4,8 @@ import {
             getAllCourses,
             getCourseById,
             updateCourseById,
-            deleteCourseById
+            deleteCourseById,
+            searchCourses
 }                               from   '../controllers/courses/course.controller'
 
 // init a router 
@@ -24,6 +25,10 @@ router.put('/:id', updateCourseById)
 
 // delete a course
 router.delete('/:id', deleteCourseById)
+
+// search with query
+router.get('/courses', searchCourses)
+
 
 // export a router 
 

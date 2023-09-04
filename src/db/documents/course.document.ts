@@ -16,6 +16,7 @@ export interface CourseDocument extends mongoose.Document {
     courseId: string,
     title: string,
     description: string,
+    category: string,
     videos: Array<Video>,
     audios: Array<Audio>,
     articles: Array<Article>,
@@ -33,6 +34,9 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: [true, "Le titre est recquis"]
     },
+    category : {
+        type: String,
+    }, 
     description: {
         type: String,
     },

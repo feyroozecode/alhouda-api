@@ -7,7 +7,7 @@ export class Course {
         public courseId: string,
         public title: string, 
         public description: string, 
-        public category: string,
+        public category: string, 
         public videos: Array<Video>,
         public audios: Array<Audio>,
         public articles: Array<Article>,
@@ -15,6 +15,7 @@ export class Course {
         this.courseId = courseId;
         this.title = title;
         this.description = description;
+        this.category = category;
         this.videos = videos;
         this.audios = audios;
         this.articles = articles;
