@@ -31,10 +31,7 @@ export interface UstazDocument extends mongoose.Document {
  * @param {Object} social_media_handles
  */ 
 const ustazSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User'
-    },
+    // user: {    type: mongoose.Types.ObjectId,ref: 'User' },
     username: { 
         type: String, 
         unique: true, 
