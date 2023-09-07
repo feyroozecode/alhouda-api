@@ -6,7 +6,7 @@ import {
     login,
     /*login8*/
     
-} from '../controllers/auth/auth.controller'
+} from '../controllers/auth/user_auth.controller'
 
 router.post('/register', register)
 router.post('/login', login)

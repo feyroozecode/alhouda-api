@@ -1,0 +1,77 @@
+Date : 2023-09-07 15:37:37
+Directory : /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api
+Total : 36 files,  3593 codes, 214 comments, 256 blanks, all 4063 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      2,514 |          0 |          2 |      2,516 |
+| TypeScript         |         30 |      1,032 |        213 |        243 |      1,488 |
+| JSON with Comments |          2 |         27 |          1 |          0 |         28 |
+| Markdown           |          2 |         20 |          0 |         11 |         31 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                               | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                  |         36 |      3,593 |        214 |        256 |      4,063 |
+| . (Files)                                                                                                          |          7 |      2,582 |          3 |         18 |      2,603 |
+| src                                                                                                                |         29 |      1,011 |        211 |        238 |      1,460 |
+| src/controllers                                                                                                    |          5 |        554 |         86 |        141 |        781 |
+| src/controllers (Files)                                                                                            |          3 |        327 |         52 |         81 |        460 |
+| src/controllers/auth                                                                                               |          1 |        100 |         25 |         26 |        151 |
+| src/controllers/courses                                                                                            |          1 |        127 |          9 |         34 |        170 |
+| src/db                                                                                                             |          5 |        181 |         43 |         19 |        243 |
+| src/db (Files)                                                                                                     |          1 |         15 |          1 |          4 |         20 |
+| src/db/documents                                                                                                   |          4 |        166 |         42 |         15 |        223 |
+| src/middleware                                                                                                     |          1 |         43 |         10 |          6 |         59 |
+| src/models                                                                                                         |          6 |         98 |          7 |         16 |        121 |
+| src/routes                                                                                                         |          6 |         88 |         28 |         39 |        155 |
+| src/static_data                                                                                                    |          4 |         24 |          5 |          5 |         34 |
+| src/utils                                                                                                          |          2 |         23 |         32 |         12 |         67 |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                           | language           | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/.eslintrc.json                               | JSON with Comments |         18 |          1 |          0 |         19 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/README.md                                    | Markdown           |          5 |          0 |          4 |          9 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/SECURITY.md                                  | Markdown           |         15 |          0 |          7 |         22 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/index.ts                                     | TypeScript         |         21 |          2 |          5 |         28 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/package-lock.json                            | JSON               |      2,487 |          0 |          1 |      2,488 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/package.json                                 | JSON               |         27 |          0 |          1 |         28 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/article.controller.ts        | TypeScript         |         99 |          4 |         30 |        133 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/auth/user_auth.controller.ts | TypeScript         |        100 |         25 |         26 |        151 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/courses/course.controller.ts | TypeScript         |        127 |          9 |         34 |        170 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/user.controller.ts           | TypeScript         |        121 |         40 |         27 |        188 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/ustaz.controller.ts          | TypeScript         |        107 |          8 |         24 |        139 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/db.ts                                 | TypeScript         |         15 |          1 |          4 |         20 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/article.document.ts         | TypeScript         |         22 |          3 |          4 |         29 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/course.document.ts          | TypeScript         |         42 |         12 |          3 |         57 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/user.document.ts            | TypeScript         |         30 |         15 |          5 |         50 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/ustaz.document.ts           | TypeScript         |         72 |         12 |          3 |         87 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/middleware/auth.middleware.ts            | TypeScript         |         43 |         10 |          6 |         59 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/article.model.ts                  | TypeScript         |         14 |          0 |          2 |         16 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/audio.model.ts                    | TypeScript         |         13 |          0 |          3 |         16 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/course.model.ts                   | TypeScript         |         22 |          0 |          2 |         24 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/user.model.ts                     | TypeScript         |         15 |          5 |          4 |         24 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/ustaz.model.ts                    | TypeScript         |         26 |          2 |          4 |         32 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/video.model.ts                    | TypeScript         |          8 |          0 |          1 |          9 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/article.router.ts                 | TypeScript         |         15 |          6 |          8 |         29 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/auth.router.ts                    | TypeScript         |          9 |          1 |          4 |         14 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/course.router.ts                  | TypeScript         |         17 |          8 |         10 |         35 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/index.ts                          | TypeScript         |         14 |          6 |          3 |         23 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/user.router.ts                    | TypeScript         |         18 |          4 |          8 |         30 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/ustaz.router.ts                   | TypeScript         |         15 |          3 |          6 |         24 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/api_routes.ts                | TypeScript         |          3 |          0 |          1 |          4 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/db_datas.ts                  | TypeScript         |          6 |          0 |          1 |          7 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/http_code.ts                 | TypeScript         |          8 |          1 |          1 |         10 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/user_roles.ts                | TypeScript         |          7 |          4 |          2 |         13 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/utils/sequence_generator.ts              | TypeScript         |          3 |         22 |          3 |         28 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/utils/string_splitter.ts                 | TypeScript         |         20 |         10 |          9 |         39 |
+| /Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/tsconfig.json                                | JSON with Comments |          9 |          0 |          0 |          9 |
+| Total                                                                                                              |                    |      3,593 |        214 |        256 |      4,063 |
++--------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

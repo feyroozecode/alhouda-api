@@ -1,0 +1,38 @@
+"filename", "language", "TypeScript", "JSON with Comments", "JSON", "Markdown", "comment", "blank", "total"
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/.eslintrc.json", "JSON with Comments", 0, 18, 0, 0, 1, 0, 19
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/README.md", "Markdown", 0, 0, 0, 5, 0, 4, 9
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/SECURITY.md", "Markdown", 0, 0, 0, 15, 0, 7, 22
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/index.ts", "TypeScript", 21, 0, 0, 0, 2, 5, 28
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/package-lock.json", "JSON", 0, 0, 2487, 0, 0, 1, 2488
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/package.json", "JSON", 0, 0, 27, 0, 0, 1, 28
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/article.controller.ts", "TypeScript", 99, 0, 0, 0, 4, 30, 133
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/auth/user_auth.controller.ts", "TypeScript", 100, 0, 0, 0, 25, 26, 151
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/courses/course.controller.ts", "TypeScript", 127, 0, 0, 0, 9, 34, 170
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/user.controller.ts", "TypeScript", 121, 0, 0, 0, 40, 27, 188
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/controllers/ustaz.controller.ts", "TypeScript", 107, 0, 0, 0, 8, 24, 139
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/db.ts", "TypeScript", 15, 0, 0, 0, 1, 4, 20
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/article.document.ts", "TypeScript", 22, 0, 0, 0, 3, 4, 29
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/course.document.ts", "TypeScript", 42, 0, 0, 0, 12, 3, 57
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/user.document.ts", "TypeScript", 30, 0, 0, 0, 15, 5, 50
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/db/documents/ustaz.document.ts", "TypeScript", 72, 0, 0, 0, 12, 3, 87
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/middleware/auth.middleware.ts", "TypeScript", 43, 0, 0, 0, 10, 6, 59
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/article.model.ts", "TypeScript", 14, 0, 0, 0, 0, 2, 16
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/audio.model.ts", "TypeScript", 13, 0, 0, 0, 0, 3, 16
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/course.model.ts", "TypeScript", 22, 0, 0, 0, 0, 2, 24
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/user.model.ts", "TypeScript", 15, 0, 0, 0, 5, 4, 24
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/ustaz.model.ts", "TypeScript", 26, 0, 0, 0, 2, 4, 32
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/models/video.model.ts", "TypeScript", 8, 0, 0, 0, 0, 1, 9
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/article.router.ts", "TypeScript", 15, 0, 0, 0, 6, 8, 29
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/auth.router.ts", "TypeScript", 9, 0, 0, 0, 1, 4, 14
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/course.router.ts", "TypeScript", 17, 0, 0, 0, 8, 10, 35
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/index.ts", "TypeScript", 14, 0, 0, 0, 6, 3, 23
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/user.router.ts", "TypeScript", 18, 0, 0, 0, 4, 8, 30
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/routes/ustaz.router.ts", "TypeScript", 15, 0, 0, 0, 3, 6, 24
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/api_routes.ts", "TypeScript", 3, 0, 0, 0, 0, 1, 4
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/db_datas.ts", "TypeScript", 6, 0, 0, 0, 0, 1, 7
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/http_code.ts", "TypeScript", 8, 0, 0, 0, 1, 1, 10
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/static_data/user_roles.ts", "TypeScript", 7, 0, 0, 0, 4, 2, 13
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/utils/sequence_generator.ts", "TypeScript", 3, 0, 0, 0, 22, 3, 28
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/src/utils/string_splitter.ts", "TypeScript", 20, 0, 0, 0, 10, 9, 39
+"/Users/macbookair/dev/wbProjects/islamic_projects/alhouda/alhouda-api/tsconfig.json", "JSON with Comments", 0, 9, 0, 0, 0, 0, 9
+"Total", "-", 1032, 27, 2514, 20, 214, 256, 4063

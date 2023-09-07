@@ -1,6 +1,6 @@
 const  jwt                   = require('jsonwebtoken')
 const { Request, Response }  = require('express')
-const JWT_SECRET = 'cf53153beb78c340388324d8a29c0a8d7337f6eecca092864952ada4ed8024dcdbc905'
+const JWT_SECRET = 'b7ac71b4d98bb826af95f9225e2256159352d1cfece46bf9f9425ec98697a8f88efb3b'
 import   {  HTTP_CODE         }   from     '../static_data/http_code' 
 
 /**

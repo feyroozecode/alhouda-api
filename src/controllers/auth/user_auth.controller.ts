@@ -13,22 +13,23 @@ import {
  * Variables and constantes
  */
 // json web token secret
-const JWT_SECRET  = 'cf53153beb78c340388324d8a29c0a8d7337f6eecca092864952ada4ed8024dcdbc905'
+const JWT_SECRET  = 'b7ac71b4d98bb826af95f9225e2256159352d1cfece46bf9f9425ec98697a8f88efb3b'
 
 // Time to expire for the JWT
 const TOKEN_MAX_TIME = 3 * (60*60)
 
 /**
- *  @Controller to handle registration of new users 
- *  @param {Request} req 
- *  @param {Response} res
- *  Register a new User by checking a user exist or not 
- */ 
+ * @Controller for user registration.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Register a new user by checking if the user exists and creating a JWT.
+ */
 
 export const register: any = async (req: Request, res: Response, next: any) => {
 
     const {username, email, password } = req.body as unknown as {username: string,email: string,  password: string}
 
+    // Check if the password is less than 6 characters
     if(password.length < 6 ){
         const error: Error = new Error('Password less than 6 characteres')
         const statusCode: number = HTTP_CODE.BAD_REQUEST;
@@ -79,14 +80,14 @@ export const register: any = async (req: Request, res: Response, next: any) => {
 }
 
 /**
- *  function for login user 
- * @param req 
- * @param res 
- * @param next 
- * @returns 
+ * Function to log in a user.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Authenticate and log in a user by creating a JWT.
  */
 export const login = async (req: Request, res: Response, next: any) => {   
 
+    // Check if username or password is missing
     const { username, password } = req.body
 
     if(!username || !password ) {

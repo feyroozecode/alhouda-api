@@ -2,8 +2,11 @@ import  {   Request ,   Response   }     from   'express'
 import { UstazModel } from '../db/documents/ustaz.document';
 import  {   Course                 }     from   '../models/course.model'    
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
+import { UserModel } from '../db/documents/user.document';
 
-// add ustaz 
+/**
+ * 
+ */
 export const addUstaz = async (req: Request, res: Response) => {
 
     const {
@@ -11,7 +14,8 @@ export const addUstaz = async (req: Request, res: Response) => {
         bio, profile_picture, social_links, courses} = 
             req.body as unknown as {
                 username: string,email: string,  password: string, role: string, bio: string, 
-                profile_picture: string, social_links: string, courses: Array<Course>}
+                profile_picture: string, social_links: string, courses: Array<Course>
+    }
 
     // validation 
     if(password.length < 6) {

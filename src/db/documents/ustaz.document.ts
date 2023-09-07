@@ -1,7 +1,9 @@
 import     mongoose    from "mongoose";
 import  {   Course   }  from '../../models/course.model'
+import { UserModel } from "./user.document";
 
 export interface UstazDocument extends mongoose.Document {
+  user: mongoose.Types.ObjectId, // reference to the UserModel
   username: string,
   password: string,
   email: string,
@@ -29,6 +31,10 @@ export interface UstazDocument extends mongoose.Document {
  * @param {Object} social_media_handles
  */ 
 const ustazSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    },
     username: { 
         type: String, 
         unique: true, 
@@ -82,4 +88,6 @@ const ustazSchema = new mongoose.Schema({
     }
 })
 
-export const UstazModel = mongoose.model<UstazDocument>('Ustaz', ustazSchema)
+export const UstazModel = 
+      //UserModel.discriminator<UstazDocument>('Ustaz', ustazSchema);
+       mongoose.model<UstazDocument>('Ustaz', ustazSchema)

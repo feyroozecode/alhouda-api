@@ -2,7 +2,7 @@ import { User }  from './user.model'
 import { user } from '../../.history/src/models/user_20230820172455';
 import { Course } from './course.model';
 
-export  class Ustaz extends User  {
+export class Ustaz extends User  {
     // init Ustaz
     constructor(
         public userId: number,
