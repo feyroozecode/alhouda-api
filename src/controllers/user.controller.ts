@@ -4,7 +4,6 @@ import  {   HTTP_CODE              }     from   '../static_data/http_code'
 import  {   USER_ROLES             }     from '../static_data/user_roles' 
 import  {   SaveOptions            }     from 'mongoose'
 
-
 /**
  * Get all users.
  * @param {Request} req - Express request object.
@@ -14,8 +13,9 @@ import  {   SaveOptions            }     from 'mongoose'
 export const getAllUsers = async (req: Request, res: Response) => {
     
     try{
-        const users = await UserModel.find()
-
+        // find all users by id and select password and exclude password
+        const users = await UserModel.find().select('-password')
+        
         res.status(HTTP_CODE.CREATED).json({
             message: 'Users fetched successfully',
             data: users
@@ -39,8 +39,8 @@ export const getUserById = async (req: any, res: Response) => {
     const {id} = req.params
 
     try {
-        // find user by id 
-        const user = await UserModel.findById(id)
+        // find user by id  and exlude a password
+        const user = await UserModel.findById(id).select('-password')
         res.status(HTTP_CODE.OK).json({
             message: 'User fetched successfully',
             datas: user
