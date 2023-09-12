@@ -1,13 +1,14 @@
 import { DB_DATA } from "../static_data/db_datas"
 
 const mongoose  = require('mongoose')
-const localDb   = `mongodb://localhost:27017/${DB_DATA.DATATABASE_NAME}`
+const LOCAL_DB_NAME = `mongodb://localhost:27017/${DB_DATA.DATATABASE_NAME}`
+const DATABASE_URL  = process.env.DATABASE_NAME || LOCAL_DB_NAME
 
 /// connecting to database  
 
 export const connectToDb = async () => {
     try {
-        await mongoose.connect(localDb, {
+        await mongoose.connect(DATABASE_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         } )
