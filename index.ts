@@ -3,11 +3,14 @@ const routes                     =     require('./src/routes/index')
 const cookieParser               =     require("cookie-parser");
 import   { connectToDb }         from  './src/db/db'
 import   {    API      }         from  './src/static_data/api_routes';
-import   { adminAuth, userAuth } from './src/middleware/auth.middleware'
+import   { adminAuth, userAuth } from  './src/middleware/auth.middleware'
+import       dotenv              from  'dotenv';
 
-const PORT    = 3000 ;
+const PORT    = process.env.PORT || 3033  ;
 const app     = express();
 
+// configure 
+dotenv.config()
 connectToDb();
 app.use(express.json());
 // use cookie parser for the cookie 
