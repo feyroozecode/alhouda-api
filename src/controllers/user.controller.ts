@@ -2,7 +2,6 @@ import  {   Request ,   Response   }     from   'express'
 import  {   UserModel              }     from   '../db/documents/user.document'
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
 import  {   USER_ROLES             }     from '../static_data/user_roles' 
-import  {   SaveOptions            }     from 'mongoose'
 
 /**
  * Get all users.
@@ -16,9 +15,9 @@ export const getAllUsers = async (req: Request, res: Response) => {
         // find all users by id and select password and exclude password
         const users = await UserModel.find().select('-password')
         
-        res.status(HTTP_CODE.CREATED).json({
+        res.status(HTTP_CODE.OK).json({
             message: 'Users fetched successfully',
-            data: users
+            users: users
         })
     }  catch(error: any) {
          res.status(HTTP_CODE.BAD_REQUEST).json({

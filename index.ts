@@ -1,10 +1,12 @@
 const express                    =     require("express");
 const routes                     =     require('./src/routes/index')
 const cookieParser               =     require("cookie-parser");
+import cors                      =  require('cors')
 import   { connectToDb }         from  './src/db/db'
 import   {    API      }         from  './src/static_data/api_routes';
 import   { adminAuth, userAuth } from  './src/middleware/auth.middleware'
 import       dotenv              from  'dotenv';
+
 
 const PORT    = process.env.PORT || 3033  ;
 const app     = express();
@@ -15,7 +17,7 @@ connectToDb();
 app.use(express.json());
 // use cookie parser for the cookie 
 app.use(cookieParser());
-
+app.use(cors())
 //using admin 
 app.get(`${API.API_V1_BASE_ROUTE}/admin`, adminAuth, (req: any, res: any) => { res.send('Admin Auth') })
 app.get('/basic',  (req: any, res: any) => { res.send('Admin Auth') })
