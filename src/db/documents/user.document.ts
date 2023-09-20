@@ -14,7 +14,6 @@ export interface UserDocument extends mongoose.Document {
     password: string;
 }
 
-
 /**
  * @class UserSchema 
  * @param {String} username
@@ -34,7 +33,6 @@ const userSchema = new mongoose.Schema({
     },
     email: { 
         type: String, 
-       
         minLength: 6, 
         required: true 
     },

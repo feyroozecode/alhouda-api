@@ -1,13 +1,12 @@
-import   {  UserModel         }   from    '../../db/documents/user.document'
-import   {  Request, Response }   from    'express'
+import   {  UserModel         }   from     '../../db/documents/user.document'
+import   {  Request, Response }   from     'express'
 import   {  HTTP_CODE         }   from     '../../static_data/http_code' 
-const    colors               =   require  ( 'colors')
 const    bcrypt               =   require  ( 'bcryptjs')
 const    jwt                  =   require  ( 'jsonwebtoken' )
 import { 
     adminAuth, 
     userAuth
-   }               from '../../middleware/auth.middleware';
+   }                              from '../../middleware/auth.middleware';
 
 /**
  * Variables and constantes
@@ -65,7 +64,7 @@ export const register: any = async (req: Request, res: Response, next: any) => {
                 user: user._id
             });
 
-            console.log(colors.orange('Request:'), req.method, req.url);
+            //console.log(('Request:'), req.method, req.url);
         }
         )
     })

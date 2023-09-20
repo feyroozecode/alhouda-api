@@ -20,4 +20,3 @@ export class User {
         this.password = password
     }
 }
-

@@ -2,7 +2,7 @@ import  {   Request ,   Response   }     from   'express'
 import  {   CourseModel            }     from '../../db/documents/course.document';
 import  {   Course                 }     from   '../../models/course.model'    
 import  {   HTTP_CODE              }     from   '../../static_data/http_code'
-import { AnyArray } from 'mongoose';
+import  { AnyArray } from 'mongoose';
 
 // add course method
 export const addCourse = async (req: Request, res: Response) => {
@@ -15,7 +15,6 @@ export const addCourse = async (req: Request, res: Response) => {
         const statusCode: number = HTTP_CODE.BAD_REQUEST;
         return res.status(statusCode).json({message: error.message, error})
     }
-
 
     // add course to the db
     try {
