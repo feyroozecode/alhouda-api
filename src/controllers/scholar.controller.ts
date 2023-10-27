@@ -1,5 +1,5 @@
 import  {   Request ,   Response   }     from   'express'
-import { UstazModel } from '../db/documents/ustaz.document';
+import { ScholarModel } from '../db/documents/scholar.document';
 import  {   Course                 }     from   '../models/course.model'    
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
 import { UserModel } from '../db/documents/user.document';
@@ -7,7 +7,7 @@ import { UserModel } from '../db/documents/user.document';
 /**
  * 
  */
-export const addUstaz = async (req: Request, res: Response) => {
+export const addScholar = async (req: Request, res: Response) => {
 
     const {
         username, email, password, role, 
@@ -24,22 +24,22 @@ export const addUstaz = async (req: Request, res: Response) => {
         return res.status(statusCode).json({message: error.message, error})
     }
 
-    // add ustaz to the db 
+    // add Scholar to the db 
     try {
-        await UstazModel.create({
+        await ScholarModel.create({
             username, email, password, role, 
             bio, profile_picture, social_links, courses
-        }).then((ustaz: any) => {
+        }).then((scholar: any) => {
            res.status(HTTP_CODE.OK).json({
-            message: 'Ustaz added successfully',
-            data: ustaz
+            message: 'Scholar added successfully',
+            data: scholar
            })
         })
     }
 
     catch(error: any) {
         res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Error adding ustaz',
+            message: 'Error adding scholar',
             errors: error.message
         })
     }
@@ -47,10 +47,10 @@ export const addUstaz = async (req: Request, res: Response) => {
 }
 
 // gett all ustazs
-export const getAllUstazs = async (req: Request, res: Response) => {
+export const getAllScholars = async (req: Request, res: Response) => {
         
         try{
-            const ustazs = await UstazModel.find()
+            const ustazs = await ScholarModel.find()
     
             res.status(HTTP_CODE.CREATED).json({
                 message: 'Ustazs fetched successfully',
@@ -64,34 +64,34 @@ export const getAllUstazs = async (req: Request, res: Response) => {
         }
 }
 
-// get a single ustaz 
-export const getUstazById = async (req: Request, res: Response) => {
+// get a single scholar 
+export const getScholarById = async (req: Request, res: Response) => {
 
     const {id} = req.params
 
     try{ 
-        const ustaz = await UstazModel.findById(id)
+        const scholar = await ScholarModel.findById(id)
 
         res.status(HTTP_CODE.OK).json({
-            message: 'Ustaz fetched successfully',
-            data: ustaz
+            message: 'Scholar fetched successfully',
+            data: scholar
         }) 
     } catch(error: any) {
         res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Error fetching ustaz',
+            message: 'Error fetching scholar',
             errors: error.message
         })
     }
 }
 
-// update a single ustaz
-export const updateUstazById = async (req: Request, res: Response) => {
+// update a single scholar
+export const updateScholarById = async (req: Request, res: Response) => {
     
         const { id } = req.params
     
         try {
-            // update ustaz if not exists
-            const updateUstaz = await UstazModel.findByIdAndUpdate(
+            // update scholar if not exists
+            const updateUstaz = await ScholarModel.findByIdAndUpdate(
                 id, 
                 req.body,
                 {new: true}
@@ -99,44 +99,44 @@ export const updateUstazById = async (req: Request, res: Response) => {
     
             if(!updateUstaz) {
                 return res.status(HTTP_CODE.NOT_FOUND).json({
-                    message: 'Ustaz NOT FOUND'
+                    message: 'Scholar NOT FOUND'
                 })
             }
     
             res.status(HTTP_CODE.OK).json({
-                message: 'Ustaz updated successfully',
+                message: 'Scholar updated successfully',
                 data: updateUstaz
             })
         } catch(error: any) {
             res.status(HTTP_CODE.BAD_REQUEST).json({
-                message: 'Error updating ustaz',
+                message: 'Error updating scholar',
                 errors: error.message
             })
         }
 }
 
-// delete a single ustaz
-export const deleteUstazById = async (req: Request, res: Response) => {
+// delete a single scholar
+export const deleteScholarById = async (req: Request, res: Response) => {
 
     const { id } = req.params
 
     try {
-        // delete ustaz if not exists
-        const deleteUstaz = await UstazModel.findByIdAndDelete(id);
+        // delete scholar if not exists
+        const deleteUstaz = await ScholarModel.findByIdAndDelete(id);
 
         if(!deleteUstaz) {
             return res.status(HTTP_CODE.NOT_FOUND).json({
-                message: 'Ustaz NOT FOUND'
+                message: 'Scholar NOT FOUND'
             })
         }
 
         res.status(HTTP_CODE.OK).json({
-            message: 'Ustaz deleted successfully',
+            message: 'Scholar deleted successfully',
             data: deleteUstaz
         })
     } catch(error: any) {
         res.status(HTTP_CODE.BAD_REQUEST).json({
-            message: 'Error deleting ustaz',
+            message: 'Error deleting scholar',
             errors: error.message
         })
     }

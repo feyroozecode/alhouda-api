@@ -2,7 +2,7 @@ import     mongoose    from "mongoose";
 import  {   Course   }  from '../../models/course.model'
 import { UserModel } from "./user.document";
 
-export interface UstazDocument extends mongoose.Document {
+export interface ScholarDocument extends mongoose.Document {
   user: mongoose.Types.ObjectId, // reference to the UserModel
   username: string,
   password: string,
@@ -30,7 +30,7 @@ export interface UstazDocument extends mongoose.Document {
  * @param {String} profile_picture
  * @param {Object} social_media_handles
  */ 
-const ustazSchema = new mongoose.Schema({
+const scholarSchema = new mongoose.Schema({
     /* user: {    type: mongoose.Types.ObjectId,ref: 'User' }, */
     username: { 
         type: String, 
@@ -48,9 +48,9 @@ const ustazSchema = new mongoose.Schema({
     },
     role: { 
         type: String, 
-        default: "ustaz", 
+        default: "Scholar", 
         required: true,
-        enum: ['user', 'admin', 'staff', 'superviseur', 'teacher', 'ustaz']
+        enum: ['user', 'admin', 'staff', 'superviseur', 'teacher', 'scholar']
     },
     courses: {
       type: mongoose.Schema.Types.Array,
@@ -85,6 +85,6 @@ const ustazSchema = new mongoose.Schema({
     }
 })
 
-export const UstazModel = 
-      //UserModel.discriminator<UstazDocument>('Ustaz', ustazSchema);
-       mongoose.model<UstazDocument>('Ustaz', ustazSchema)
+export const ScholarModel = 
+      //UserModel.discriminator<UstazDocument>('Scholar', ustazSchema);
+       mongoose.model<ScholarDocument>('Scholar', scholarSchema)

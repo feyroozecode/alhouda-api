@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors())
 
-//using admin 
+//using admin routes 
 app.get(`${API.API_V1_BASE_ROUTE}/admin`, adminAuth, (req: any, res: any) => { res.send('Admin Auth') })
 app.get('/basic',  (req: any, res: any) => { res.send('Admin Auth') })
 

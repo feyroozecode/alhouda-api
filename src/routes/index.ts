@@ -2,7 +2,7 @@ const  express          =    require ('express')
 const  router           =    express.Router()
 import registerRoute   from  './auth.router'
 import userRoute       from  './user.router'
-import ustazRoute      from  './ustaz.router'
+import ustazRoute      from  './scholar.router'
 import courseRoute     from  './course.router'
 import articleRoute    from  './article.router'
 
