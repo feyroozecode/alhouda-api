@@ -4,6 +4,8 @@
 # Alhouda API v.0.1 
   [This project is using NodeJs, Typescript and somes package like : express, mongoose etc...]
 
- Alhouda Project is a Platform for Islam with local Ulema from Niger and Nigeria scholars Courses, Lectures, Quran , Hadith , articles etc.. 
+ Alhouda Project is a Platform for Islamic Courses, Audio, Vidéos, Quraan, Hadith articles , Books 📚  etc... etc.. with local Ulemas from Niger.
 
  We are open for opensource contribution 
+
+reach me on : feyroozeCode@gmail.com 
