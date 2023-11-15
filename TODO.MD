@@ -3,8 +3,10 @@
 
 TODO  : 06/07/23
 
- - Implement .env and add credentials => DONE
- - Create a user Next Id on adding a user 
- - Enable a Logger to log app activity
- - Enable Testing for API 
+ - Create a user Next Id on adding a user    => IN WORK 
+ - Enable a Logger to log app activity       => IN WORK 
+ - Enable Testing for API                    => WAITING 
+ - Create A project System Design            => UNDER EXAM 
+ - Refactor the App to THE new Design System => UNDER EXAM 
+
 
