@@ -24,6 +24,8 @@ const TOKEN_MAX_TIME = 3 * (60*60)
  * Register a new user by checking if the user exists and creating a JWT.
  */
 
+const HASH_LENGTH = 10;
+
 export const register: any = async (req: Request, res: Response, next: any) => {
 
     const {username, email, password } = req.body as unknown as {username: string,email: string,  password: string}
@@ -37,7 +39,7 @@ export const register: any = async (req: Request, res: Response, next: any) => {
 
    // check if user already exists
    try {
-    bcrypt.hash(password, 10).then(async (hash: any) => {
+    bcrypt.hash(password, HASH_LENGTH).then(async (hash: any) => {
         await UserModel.create({
             username,
             email,
