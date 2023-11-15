@@ -1,18 +1,23 @@
 import  {   Request ,   Response   }     from   'express'
 import  {   UserModel              }     from   '../db/documents/user.document'
 import  {   HTTP_CODE              }     from   '../static_data/http_code'
-import   {  USER_ROLES        }   from '../static_data/user_roles' 
-import   { SaveOptions        }   from 'mongoose'
+import  {   USER_ROLES             }     from '../static_data/user_roles' 
 
-// get  all users 
+/**
+ * Get all users.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Fetch all users from the database.
+ */
 export const getAllUsers = async (req: Request, res: Response) => {
     
     try{
-        const users = await UserModel.find()
-
-        res.status(HTTP_CODE.CREATED).json({
+        // find all users by id and select password and exclude password
+        const users = await UserModel.find().select('-password')
+        
+        res.status(HTTP_CODE.OK).json({
             message: 'Users fetched successfully',
-            data: users
+            users: users
         })
     }  catch(error: any) {
          res.status(HTTP_CODE.BAD_REQUEST).json({
@@ -22,14 +27,19 @@ export const getAllUsers = async (req: Request, res: Response) => {
     }
 }
 
-// get user by id 
+/**
+ * Get a user by ID.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Fetch a user by their ID from the database.
+ */
 export const getUserById = async (req: any, res: Response) => {
 
     const {id} = req.params
 
     try {
-        // find user by id 
-        const user = await UserModel.findById(id)
+        // find user by id  and exlude a password
+        const user = await UserModel.findById(id).select('-password')
         res.status(HTTP_CODE.OK).json({
             message: 'User fetched successfully',
             datas: user
@@ -44,6 +54,12 @@ export const getUserById = async (req: any, res: Response) => {
 }
 
 // update user by id 
+/**
+ * Update a user by ID.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Update a user's information by their ID.
+ */
 export const updateUserById = async ( req: Request, res: Response) => {
 
     const { id } = req.params
@@ -77,11 +93,9 @@ export const updateUserById = async ( req: Request, res: Response) => {
 
 /**
  * Update the role of a user.
- *
- * @param {Request} req - The request object containing the new role and user ID.
- * @param {Response} res - The response object used to send the result back to the client.
- * @param {any} next - The next function in the middleware chain.
- * @returns {void}
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Update the role of a user.
  */
 export const updateRole = async (req: Request, res: Response, next: any) => {
 
@@ -139,8 +153,13 @@ export const updateRole = async (req: Request, res: Response, next: any) => {
         }
     }
 }
-
-// delete user by id 
+    
+/**
+ * Delete a user by ID.
+ * @param {Request} req - Express request object.
+ * @param {Response} res - Express response object.
+ * Delete a user by their ID.
+ */
 export const deleteUserById = async (req: Request, res: Response) => {
     
         const { id } = req.params

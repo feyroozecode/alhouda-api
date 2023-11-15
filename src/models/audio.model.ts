@@ -1,12 +1,7 @@
 
-export class Audio {
-    
+export class Audio {    
 
-  constructor(
-        private id: string, 
-        private filename: string,
-        private url: string,
-        private duration: number
+  constructor(private id: string, private filename: string, private url: string, private duration: number
     ) {
         this.id = id;
         this.filename = filename;

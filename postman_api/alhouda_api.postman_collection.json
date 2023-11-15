@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "c5bfa172-0da2-48ab-bb74-dba5fdda5c6b",
+		"name": "alhouda_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29369418"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "ustaz",
+					"item": [
+						{
+							"name": "getAllUstaz",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "addUstaz",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}:3000/api/v1/auth/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUstazById",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "deleteUstaz",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "updateUstaz",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\" : \"Ahmad\",\n    \"email\": \"ahmad@gmail.com\",\n    \"password\": \"Ahmad.alhouda.9946\",\n    \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}:3000/api/v1/auth/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user_crud",
+					"item": [
+						{
+							"name": "updateUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"654321\",\n    \"role\": \"admin\"\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}:3000/api/v1/user/64e31c6e209edfe51329f87a",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"64e31c6e209edfe51329f87a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}:3000/api/v1/user/64e31c6e209edfe51329f87a",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"64e31c6e209edfe51329f87a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}:3000/api/v1/user/64e32ba1becf50ca2f3775a2",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"64e32ba1becf50ca2f3775a2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateRole",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"description": "Different endpoints to perform user CRUD"
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}:3000/api/v1/user/all",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "article",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "addArticle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Le Niger, un pays musulman\",\n    \"description\": \"Le Niger est un pays de l'afrique de l'ouest , l'islam a debuter au niger depuis ...\",\n    \"author\": \"Ishaaq\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}:3000/api/v1/article/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateArticle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}:3000/api/v1/article/64eda264625411840255a7c7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"64eda264625411840255a7c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteArticle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}:3000/api/v1/article/64eda32a303235ddfcbe1414",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"64eda32a303235ddfcbe1414"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "crud",
+					"item": [
+						{
+							"name": "getCourseById",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "addCourse",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "updateCourse",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "deleteCourse",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getAllcurses",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "127.0.0.1"
+		}
+	]
+}
