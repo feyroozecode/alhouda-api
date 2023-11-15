@@ -1,5 +1,5 @@
 # Docker Configuration
-FROM node:18-alpine
+FROM node:21-alpine
 
 WORKDIR /
 
