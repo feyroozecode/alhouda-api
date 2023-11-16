@@ -1,6 +1,5 @@
 .history
 .vscode
-.gitignore
 .VSCodeCounter
-node_modules
 .env
+/node_modules
