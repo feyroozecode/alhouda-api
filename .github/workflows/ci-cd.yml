@@ -1,0 +1,35 @@
+
+name: Alhouda Api 
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches : [ main ]
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repository
+              uses : actions/setup-node@v2
+              with:
+                node-version: '18'
+                
+            - name: cache npm dependencies
+              uses : actions/cache@v2
+              with:
+                path: ~/.npm
+                key: ${{ runner.os }}--node-${{ hashFiles('**/package-lock.json') }}
+                restore-keys: ${{ runner.os }}-node
+        
+            - name: Install dependencies
+              run : npm run dev
+
+            - name: Run tests
+              run : npm test
+                
+            - name: Deploy
+              if: github.ref == 'refs/head/main'
+              run: echo "Deploy a App"
