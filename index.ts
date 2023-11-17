@@ -6,7 +6,8 @@ import   { connectToDb }         from  './src/db/db'
 import   {    API      }         from  './src/static_data/api_routes';
 import   { adminAuth, userAuth } from  './src/middleware/auth.middleware'
 import       dotenv              from  'dotenv';
-import   { loggerMiddleware }    from './src/middleware/logger.middleware'
+import { loggerMiddleware } from './src/middleware/logger.middleware'
+import    errorHandler      from './src/lib/error.handler'
 
 const PORT    = process.env.PORT || 3033  ;
 const app     = express();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors())
 app.use(loggerMiddleware)
+app.use(errorHandler)
 
 //using admin routes 
 app.get(`${API.API_V1_BASE_ROUTE}/admin`, adminAuth, (req: any, res: any) => { res.send('Admin Auth') })
