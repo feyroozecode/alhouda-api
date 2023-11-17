@@ -3,3 +3,4 @@
 .VSCodeCounter
 .env
 /node_modules
+/logs
