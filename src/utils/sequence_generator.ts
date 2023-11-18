@@ -26,3 +26,11 @@ class SequenceGenerator {
     */
 
 }
+
+export const GuiIdGenerator = (theID: number) => {
+    let id: number;
+
+    const uid = ( () => (id = theID, () => theID++   )) ();
+    
+    return uid;
+}
