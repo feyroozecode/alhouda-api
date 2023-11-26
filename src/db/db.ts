@@ -9,8 +9,8 @@ export const connectToDb = async () => {
     try {
         await mongoose.connect(
             DATABASE_URL, {
-                useNewUrlParser: true,
-                    useUnifiedTopology: true
+                //useNewUrlParser: true,
+                // useUnifiedTopology: true
         } )
         console.log('connected to db')
     }
