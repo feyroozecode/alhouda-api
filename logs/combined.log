@@ -1,1 +1,2 @@
 {"label":"icecream","level":"info","message":"GET /api/v1/user/all 200 891 - 108.854 ms\n","timestamp":"2023-11-15T22:40:33.402Z"}
+{"label":"request","level":"info","message":"GET /api/v1//user/all 200 891 - 191.882 ms\n","timestamp":"2023-12-23T13:58:49.459Z"}
